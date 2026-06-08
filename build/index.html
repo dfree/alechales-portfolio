@@ -9,6 +9,7 @@
 <meta name="keywords" content="Alec Hales, artist, contemporary art, painting, oil on canvas, works on paper, collage, monotype, Dublin artist, Australian artist, figurative painting, expressionism, futurism">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light">
 <link rel="canonical" href="https://alechales.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Alec Hales">
@@ -44,7 +45,7 @@
   --ff:"Helvetica Neue",Helvetica,"Arial Nova",Arial,system-ui,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;}
-html{height:100%;background:var(--bg);scroll-snap-type:y mandatory;scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:0;scrollbar-gutter:stable;}
+html{height:100%;color-scheme:light;background:var(--bg);scroll-snap-type:y mandatory;scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:0;scrollbar-gutter:stable;}
 body{margin:0;min-height:100%;font-family:var(--ff);color:var(--ink);background:transparent;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"kern" 1,"liga" 1;}
 body::before{content:"";position:fixed;inset:0;z-index:-1;background:var(--bg);}
 img{max-width:100%;}
@@ -60,6 +61,7 @@ a{color:inherit;text-decoration:none;}
 .site-header__name span{color:var(--ink-soft);font-weight:400;}
 .site-nav{position:fixed;top:0;right:var(--pad-x);height:var(--header-h);display:flex;gap:clamp(14px,2vw,30px);align-items:center;z-index:300;pointer-events:auto;font-size:var(--fs-meta);letter-spacing:.04em;}
 .site-nav__link{position:relative;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.11em;font-size:var(--fs-meta);padding:4px 0;transition:color .25s var(--ease);}
+@media (max-width:360px){.site-nav{gap:11px;padding-top:3.3px;}.site-nav__link{font-size:10px;letter-spacing:.07em;}}
 .site-nav__link::after{content:"";position:absolute;left:0;right:100%;bottom:1px;height:1px;background:var(--ink);transition:right .3s var(--ease);}
 .site-nav__link:hover,.site-nav__link:focus-visible{color:var(--ink);}
 .site-nav__link:hover::after,.site-nav__link:focus-visible::after,.site-nav__link[aria-current="true"]::after{right:0;}
