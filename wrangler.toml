@@ -1,0 +1,22 @@
+# Cloudflare Workers — static assets only (no Worker script / no build).
+# Serves the contents of ./build as a static site.
+name = "alechales-portfolio"
+compatibility_date = "2025-01-01"
+
+[assets]
+directory = "./build"
+# "/" serves build/index.html automatically.
+html_handling = "auto-trailing-slash"
+not_found_handling = "none"
+
+# --- Custom domain (optional) ---------------------------------------------
+# After the first successful deploy your site is live at
+#   https://alechales-portfolio.<your-subdomain>.workers.dev
+# To serve it on alechales.com instead, add the domain in the Cloudflare
+# dashboard (Workers & Pages > your Worker > Settings > Domains & Routes),
+# or uncomment and configure the routes block below:
+#
+# routes = [
+#   { pattern = "alechales.com", custom_domain = true },
+#   { pattern = "www.alechales.com", custom_domain = true },
+# ]
