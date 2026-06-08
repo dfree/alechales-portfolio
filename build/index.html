@@ -108,7 +108,7 @@ a{color:inherit;text-decoration:none;}
   .work__imgwrap--pair,.work__imgwrap--stack{flex-direction:column;}
   .work__imgwrap--pair .work__image,.work__imgwrap--stack .work__image{max-width:100%;max-height:calc(50% - 8px);}
 }
-.work__caption{flex:0 0 auto;display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:clamp(12px,1.8vh,18px);}
+.work__caption{flex:0 0 auto;display:flex;flex-direction:column;gap:8px;/* border-top:1px solid var(--line); */padding-top:clamp(12px,1.8vh,18px);}
 .work__cap-row{display:flex;flex-direction:column;gap:4px;}
 .work__counter{display:none;appearance:none;-webkit-appearance:none;border:0;background:none;padding:2px 0;margin:0;font-family:inherit;font-size:var(--fs-meta);letter-spacing:.06em;color:var(--ink-soft);font-variant-numeric:tabular-nums;cursor:pointer;line-height:1;transition:color .25s var(--ease);}
 .work__counter b{color:var(--ink);font-weight:600;}
@@ -156,8 +156,8 @@ a{color:inherit;text-decoration:none;}
 .counter.is-on{opacity:1;transform:none;pointer-events:auto;}
 .counter:hover,.counter:focus-visible{color:var(--ink);}
 .counter b{color:var(--ink);font-weight:600;}
-@media (max-width:560px){.counter-bar{margin-bottom:-5px;}}
-@media (min-width:561px){.counter-bar{bottom:calc(clamp(20px,3.4vh,40px) + 1.34em);}.counter{display:inline-block;}}
+@media (max-width:560px){.counter-bar{bottom:clamp(20px,3.4vh,40px);margin-bottom:2px;}}
+@media (min-width:561px){.counter-bar{bottom:calc(clamp(20px,3.16vh,40px) + 1.34em);}.counter{display:inline-block;}}
 
 /* Entrance is a pure enhancement: visible end-state is the base style,
    we only animate FROM hidden once a section is marked .is-visible.
