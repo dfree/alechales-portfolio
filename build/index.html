@@ -110,7 +110,7 @@ a{color:inherit;text-decoration:none;}
 .statement__body p{margin:0 0 1em;font-size:clamp(20px,2.55vw,34px);line-height:1.36;letter-spacing:-.01em;text-wrap:pretty;}
 .statement__body p:last-child{color:var(--ink-soft);margin-bottom:0;font-family:"Inter",var(--ff);font-weight:200;}
 
-.work{display:flex;flex-direction:column;height:100svh;height:100dvh;overflow:hidden;padding:calc(var(--header-h) + clamp(10px,2vh,22px)) var(--pad-x) clamp(20px,3.4vh,40px);}
+.work{display:flex;flex-direction:column;height:100svh;height:100dvh;overflow:clip;padding:calc(var(--header-h) + clamp(10px,2vh,22px)) var(--pad-x) clamp(20px,3.4vh,40px);}
 .work__figure{margin:0;flex:1 1 auto;min-height:0;display:flex;flex-direction:column;gap:clamp(14px,2.4vh,28px);}
 .work__imgwrap{flex:1 1 auto;min-height:0;display:flex;align-items:center;justify-content:center;position:relative;z-index:100;}
 .work__image{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;box-shadow:0 1px 2px rgba(24,23,18,.05),16px 22px 34px -20px rgba(24,23,18,.28),-14px 40px 56px -28px rgba(24,23,18,.20),0 54px 82px -44px rgba(24,23,18,.16);}
@@ -188,6 +188,21 @@ a{color:inherit;text-decoration:none;}
   html.js .is-visible.statement .statement__inner > *:nth-child(3){animation-delay:.14s;}
   html.js .is-visible.cv .cv__grid{animation:ah-rise .8s var(--ease) both;}
 }
+/* Subtle parallax: images drift slightly faster than the page as each section
+   scrolls through the viewport. Pure CSS scroll-driven animation — runs on the
+   compositor (no JS, no scroll listeners), and is silently skipped where the
+   browser lacks support. Symmetric keyframes => zero offset when a section is
+   snapped/centered, drift only appears mid-scroll. */
+@media (prefers-reduced-motion:no-preference){
+  @supports (animation-timeline:view()){
+    .work__imgwrap,.intro__portrait img{
+      animation:ah-parallax linear both;
+      animation-timeline:view();
+      animation-range:cover 0% cover 100%;
+    }
+    @keyframes ah-parallax{from{transform:translateY(11%);}to{transform:translateY(-11%);}}
+  }
+}
 @media (max-height:660px){.intro__scroll{display:none;}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.intro__scroll svg{animation:none;}}
 :focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
@@ -238,7 +253,7 @@ a{color:inherit;text-decoration:none;}
     </div>
   </section>
 
-    <section id="work-01-untitled" class="work reveal" data-anchor="works" aria-labelledby="work-01-untitled-title" data-screen-label="Work 01" data-work="01">
+    <section id="works" class="work reveal" data-anchor="works" aria-labelledby="work-01-untitled-title" data-screen-label="Work 01" data-work="01">
       <figure class="work__figure">
         <div class="work__imgwrap">
           <img class="work__image" src="img/p1.webp" alt="Untitled — Oil on canvas, 200 × 180 cm, 2026. Work by Alec Hales." width="1600" height="1306" loading="eager" fetchpriority="high" decoding="async">
